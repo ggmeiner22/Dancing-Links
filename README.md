@@ -15,7 +15,7 @@ This project provides a solution to the classic n‑Queens problem using Donald 
 - **dancing_links.py**  
   Implements the `DancingLinks` class, which provides methods for manipulating the matrix ( adding rows, covering/uncovering columns) and performing the recursive search for solutions.
 
-- **nqueens_solver.py**  
+- **nqueens.py**  
   Contains functions for building the exact cover matrix representation of the n‑Queens problem, solving it using the Donald Knuth’s Dancing Links algorithm algorithm, and printing a textual representation of a solution.
 
 - **main.py**  
