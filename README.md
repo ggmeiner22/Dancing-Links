@@ -1,4 +1,4 @@
-# n-Queens Problem using Dancing Links (DLX)
+# N-Queens Problem using Dancing Links
 
 ## Overview
 
