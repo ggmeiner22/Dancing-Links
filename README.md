@@ -23,7 +23,12 @@ This project provides a solution to the classic n‑Queens problem using Donald 
 
 ## Execution
 
-To run the program:
+To run the program use the following structure:
 ~~~
 $ python3 main.py <board_size> [<board_size2> ...]
 ~~~
+For example, the following will print board sizes of 4, 5, and 6:
+~~~
+$ python3 main.py 4 5 6
+~~~
+
