@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project provides a solution to the classic n‑Queens problem using Donald Knuth’s Dancing Links algorithm (Algorithm X) in Python. The project demonstrates how to set up an exact cover matrix for the n‑Queens problem and uses DLX to efficiently compute all possible solutions. You can run the solver for one or more board sizes by passing command-line arguments.
+This project provides a solution to the classic n‑Queens problem using Donald Knuth’s Dancing Links algorithm (Algorithm X) in Python.
 
 ## File Structure
 
