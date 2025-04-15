@@ -4,7 +4,7 @@ from nqueens import solve_n_queens, print_solution
 
 def main():
     if len(sys.argv) < 2:
-        print("Try the following: $ python3 nqueens.py <board_size> [<board_size2> ...]")
+        print("Try the following: $ python3 main.py <board_size> [<board_size2> ...]")
         return
     # Process each board size provided as a command-line argument.
     for arg in sys.argv[1:]:
