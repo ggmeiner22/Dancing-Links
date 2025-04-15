@@ -21,6 +21,8 @@ This project provides a solution to the classic n‑Queens problem using Donald 
 - **main.py**  
   The main entry point of the application. It reads one or more board sizes as command-line arguments, executes the solver for each board size, and prints out the number of solutions along with one sample solution for each.
 
+## Execution
+
 To run the program:
 ~~~
 $ python3 main.py <board_size> [<board_size2> ...]
