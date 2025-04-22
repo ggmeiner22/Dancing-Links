@@ -1,4 +1,5 @@
 from dancing_links import DancingLinks
+import time
 
 
 def solve_n_queens(n):
@@ -6,6 +7,9 @@ def solve_n_queens(n):
     Constructs the exact cover matrix for the n-Queens problem and solves it.
     Returns a list of solutions; each solution is a list of nodes (each with row_data (i, j)).
     """
+
+    start = time.time()
+
     columns = []
     # Primary columns: one per row and one per column.
     for i in range(n):
@@ -36,7 +40,11 @@ def solve_n_queens(n):
     results = []
     solution = []
     dlx.search(solution, results)
-    return results
+
+    total_time = time.time() - start # Measure the run time of the original
+    print(f"[Original] Solved {n}-Queens in {total_time:.4f} seconds with {len(results)} solutions.")
+
+    return results, total_time
 
 
 def print_solution(n, solution):
