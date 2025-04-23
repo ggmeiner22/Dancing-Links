@@ -31,6 +31,8 @@ This project solves the classical **n-Queens** problem using Donald Knuth’s **
 - **main.py**  
   Command-line entrypoint that accepts multiple board sizes, invokes both the original and organ-pipe solvers for each size, prints example solutions, and summarizes timing comparisons.
 
+---
+
 ## Execution
 
 To run the program use the following structure:
