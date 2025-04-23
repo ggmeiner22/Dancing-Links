@@ -11,6 +11,7 @@ class DancingLinks:
         self.header = ColumnNode("header")
         self.columns = {}  # Map from column name to ColumnNode.
         last = self.header
+
         # Create column headers and add them to the doubly linked list.
         for name, is_primary in columns:
             col = ColumnNode(name, primary=is_primary)
@@ -34,12 +35,14 @@ class DancingLinks:
             new_node = Node()
             new_node.column = col
             new_node.row_data = row_data
+
             # Link the new node into the bottom of the column.
             new_node.down = col
             new_node.up = col.up
             col.up.down = new_node
             col.up = new_node
             col.size += 1
+
             # Link the new node into the row.
             if first_node is None:
                 first_node = new_node
@@ -52,9 +55,15 @@ class DancingLinks:
                 first_node.left = new_node
 
     def cover(self, col):
-        """Covers a column (removes it from the header list) and all rows that use it."""
+        """
+        Cover a column to remove it and its rows from the matrix.
+
+        This hides the column header and all rows that have a node in this column.
+        """
+        # Remove column header from header list
         col.right.left = col.left
         col.left.right = col.right
+        # For each row in this column, remove all other nodes in that row
         i = col.down
         while i != col:
             j = i.right
@@ -66,7 +75,12 @@ class DancingLinks:
             i = i.down
 
     def uncover(self, col):
-        """Uncovers a column (restores it into the header list) and all rows that use it."""
+        """
+        Uncover a column, restoring it and its rows into the matrix.
+
+        This reverses the cover operation, re-linking the column and its rows.
+        """
+        # For each row in reverse order, restore all nodes in that row
         i = col.up
         while i != col:
             j = i.left
@@ -76,6 +90,7 @@ class DancingLinks:
                 j.up.down = j
                 j = j.left
             i = i.up
+        # Re-link the column header into header list
         col.right.left = col
         col.left.right = col
 
@@ -108,19 +123,27 @@ class DancingLinks:
         if c is None or c.size == 0:
             return
 
+        # Cover column c and try each row
         self.cover(c)
         r = c.down
         while r != c:
             solution.append(r)
+            # Cover columns for each node in this row
             j = r.right
             while j != r:
                 self.cover(j.column)
                 j = j.right
+
+            # Recurse
             self.search(solution, results)
+
+            # Backtrack
             solution.pop()
             j = r.left
             while j != r:
                 self.uncover(j.column)
                 j = j.left
             r = r.down
+
+        # Uncover column c to restore state
         self.uncover(c)
