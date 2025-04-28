@@ -48,11 +48,26 @@ def solve_n_queens(n):
 
 
 def print_solution(n, solution):
-    """Prints a board for a given solution (list of nodes with row_data (i, j))."""
-    board = [["." for _ in range(n)] for _ in range(n)]
+    """Print a fancy, realistic styled chessboard using ANSI and Unicode."""
+    board = [[" " for _ in range(n)] for _ in range(n)]
     for node in solution:
         i, j = node.row_data
-        board[i][j] = "Q"
-    for row in board:
-        print(" ".join(row))
-    print()
+        board[i][j] = "♛"
+
+    dark = "\033[48;5;240m"
+    light = "\033[48;5;250m"
+    reset = "\033[0m"
+    border = "   " + "".join(f"  {chr(65 + c)} " for c in range(n))  # Column headers A, B, C...
+
+    print("\n" + border)
+    print("  +" + "---+" * n)
+    for i in range(n):
+        row = []
+        for j in range(n):
+            square_color = dark if (i + j) % 2 else light
+            piece = board[i][j]
+            row.append(f"{square_color} {piece} {reset}")
+        print(f"{n - i} |" + "|".join(row) + f"| {n - i}")  # Row index (bottom to top)
+        print("  +" + "---+" * n)
+    print(border + "\n")
+
