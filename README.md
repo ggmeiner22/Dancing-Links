@@ -29,7 +29,6 @@ This project solves the classical **n-Queens** problem using Donald Knuth’s **
   Generates an “organ-pipe” (center-out) ordering for rows and columns, builds the n-Queens matrix in that order, runs Donald Knuth’s Dancing Links algorithm algorithm, and times the optimized search.
 
 - **gui.py**
-
   Generates a chess-like baord with n-queens, with teh ability to animate the steps the algorithm took, and a view of all boards of all solutions applicable with n. 
 
 - **main.py**  
@@ -51,3 +50,4 @@ You can also run a graphical version of the program with:
 ~~~
 $ python gui.py 6
 ~~~
+**Note, only the first integer value will be read from the input strem in gui.py**
