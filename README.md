@@ -50,4 +50,4 @@ You can also run a graphical version of the program with:
 ~~~
 $ python gui.py 6
 ~~~
-**Note, only the first integer value will be read from the input strem in gui.py**
+**Note, only the first integer value will be read from the input strem in gui.py.**
